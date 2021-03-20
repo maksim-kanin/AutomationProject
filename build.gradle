@@ -33,6 +33,7 @@ dependencies {
     compile("org.aeonbits.owner:owner:1.0.4")
     compile("org.apache.httpcomponents:httpclient:4.5.3")
     compile("org.apache.httpcomponents:fluent-hc:4.5.3")
+    compile("com.github.pengrad:java-telegram-bot-api:5.1.0")
 }
 
 tasks.withType(Test) {

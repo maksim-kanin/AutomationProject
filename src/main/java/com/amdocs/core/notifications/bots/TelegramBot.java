@@ -2,70 +2,40 @@ package com.amdocs.core.notifications.bots;
 
 import com.amdocs.core.notifications.pojo.AllureSummary;
 import com.amdocs.core.notifications.pojo.Statistic;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.fluent.Request;
-
-import java.io.IOException;
+import com.pengrad.telegrambot.model.request.ParseMode;
+import com.pengrad.telegrambot.request.SendMessage;
 
 import static com.amdocs.core.utils.JenkinsUtils.getSummary;
-import static org.apache.http.entity.ContentType.APPLICATION_JSON;
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class TelegramBot implements MessageProvider {
     private static final String SECRET_BOT_TOKEN = "1796571092:AAHGPypoDtHNgjjsfriIK6iBzjlqSqCMAQ8";
     //ID for "QA.GURU 4| Группа 9"
     private static final String CHAT_ID = "-1001447250696";
+    private final com.pengrad.telegrambot.TelegramBot bot = new com.pengrad.telegrambot.TelegramBot(SECRET_BOT_TOKEN);
 
     @Override
     public void send() {
-        HttpResponse response = null;
-        try {
-            response = Request.Post("https://api.telegram.org/bot" + SECRET_BOT_TOKEN + "/sendMessage")
-                    .bodyString(new Body(CHAT_ID, beautifySummary(getSummary())).bodyAsString(), APPLICATION_JSON)
-                    .execute()
-                    .returnResponse();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        int statusCode = response.getStatusLine().getStatusCode();
-        assertThat(statusCode == 200)
-                .as("Status code must be 200 OK, but it was " + statusCode)
-                .isTrue();
+        SendMessage message = new SendMessage(CHAT_ID, beautifySummary(getSummary())).parseMode(ParseMode.HTML);
+        bot.execute(message);
     }
 
     private String beautifySummary(AllureSummary summary) {
         Statistic statistic = summary.getStatistic();
         StringBuilder builder = new StringBuilder();
-        builder.append("TOTAL: ")
+        builder.append("<b>Total: </b>")
                 .append(statistic.getTotal())
                 .append("\r\n")
-                .append("PASSED: ")
+                .append("<b>Passed: </b>")
                 .append(statistic.getPassed())
                 .append("\r\n")
-                .append("FAILED: ")
+                .append("<b>Failed: </b>")
                 .append(statistic.getFailed())
                 .append("\r\n")
-                .append("BROKEN: ")
+                .append("<b>Broken: </b>")
                 .append(statistic.getBroken())
                 .append("\r\n")
-                .append("SKIPPED: ")
+                .append("<b>Skipped: </b>")
                 .append(statistic.getSkipped());
         return builder.toString();
-    }
-
-    private class Body {
-        private final String chatId;
-        private final String text;
-
-        public Body(String chatId, String message) {
-            this.chatId = chatId;
-            this.text = message;
-        }
-
-        public String bodyAsString() {
-            return "{" +
-                    "\"chat_id\":\"" + chatId + "\", " +
-                    "\"text\":\"" + text + "\"}";
-        }
     }
 }
