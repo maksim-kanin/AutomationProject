@@ -1,43 +1,39 @@
 package com.amdocs.core.lifecycle;
 
-import com.amdocs.core.notifications.bots.MessageProvider;
-import com.amdocs.core.notifications.bots.SlackBot;
-import com.amdocs.core.notifications.bots.TelegramBot;
-import org.junit.jupiter.api.extension.AfterAllCallback;
+import com.amdocs.core.driver.DriverFactory;
+import com.amdocs.core.driver.LocalDriverFactory;
+import com.amdocs.core.driver.RemoteDriverFactory;
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
-import static com.amdocs.core.config.UITestsConfig.DEV_CONFIG;
+import static com.amdocs.core.helpers.AttachmentsHelpers.*;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 
-public class UITestLifeCycleExtension implements BeforeAllCallback, AfterEachCallback, AfterAllCallback {
+public class UITestLifeCycleExtension implements BeforeAllCallback, AfterEachCallback {
     private static final String SUCCESS = "Success";
     private static final String FAILED = "Failed";
 
     @Override
     public void beforeAll(ExtensionContext context) {
-
+        getFactory().createDriver().init();
     }
 
     @Override
     public void afterEach(ExtensionContext context) {
-
+        if (getTestStatus(context).equals(FAILED)) {
+            attachScreenshot("Page screenshot");
+            attachPageSource();
+            attachVideo();
+        }
+        closeWebDriver();
     }
 
-    @Override
-    public void afterAll(ExtensionContext context) {
-        messageProvider().send();
-    }
-
-    private MessageProvider messageProvider() {
-        final String botType = DEV_CONFIG.getNotificationBot();
-        switch (botType) {
-            case "telegram":
-                return new TelegramBot();
-            case "slack":
-                return new SlackBot();
-            default:
-                throw new RuntimeException("Unsupported botType type " + botType);
+    private DriverFactory getFactory() {
+        if (System.getProperty("environment").equals("remote")) {
+            return new RemoteDriverFactory();
+        } else {
+            return new LocalDriverFactory();
         }
     }
 

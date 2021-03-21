@@ -44,3 +44,15 @@ test {
     useJUnitPlatform()
     systemProperties(System.getProperties())
 }
+
+task telegramAllureResults(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'com.amdocs.core.notifications.Sender'
+    args 'telegram'
+}
+
+task slackAllureResults(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'com.amdocs.core.notifications.Sender'
+    args 'slack'
+}

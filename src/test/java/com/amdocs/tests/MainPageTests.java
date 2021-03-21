@@ -4,12 +4,12 @@ import com.amdocs.core.lifecycle.UITestLifeCycleExtension;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static com.codeborne.selenide.Selenide.open;
 
 @ExtendWith(UITestLifeCycleExtension.class)
 public class MainPageTests {
     @Test
-    public void test() {
-        assertThat(true).isTrue();
+    public void openMainPage() {
+        open("");
     }
 }

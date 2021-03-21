@@ -28,12 +28,10 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
+import static com.amdocs.core.config.JenkinsConfig.JENKINS_CONFIG;
 import static org.apache.http.auth.AuthScope.ANY;
 
 public class JenkinsUtils {
-    private static final String USER = "dummy_user";
-    private static final String PASSWORD = "odin_raz_ne_tinto_brass";
-
     public static AllureSummary getSummary() {
         try {
             return new ObjectMapper().readValue(summaryAsString(), AllureSummary.class);
@@ -45,7 +43,7 @@ public class JenkinsUtils {
     private static String summaryAsString() {
         CredentialsProvider provider = new BasicCredentialsProvider();
         UsernamePasswordCredentials credentials
-                = new UsernamePasswordCredentials(USER, PASSWORD);
+                = new UsernamePasswordCredentials(JENKINS_CONFIG.getJenkinsUserName(), JENKINS_CONFIG.getJenkinsUserPassword());
         provider.setCredentials(ANY, credentials);
         SSLContext sslContext = null;
         try {
@@ -69,7 +67,7 @@ public class JenkinsUtils {
                         ))
                 .build();
         try {
-            String encoded = Base64.getEncoder().encodeToString((USER + ":" + PASSWORD).getBytes());
+            String encoded = Base64.getEncoder().encodeToString((JENKINS_CONFIG.getJenkinsUserName() + ":" + JENKINS_CONFIG.getJenkinsUserPassword()).getBytes());
             HttpGet request = new HttpGet("https://jenkins.autotests.cloud/view/QA.GURU_4/job/C04-AsiaKas-jenkins-selenoid/13/allure/widgets/summary.json");
             request.addHeader(HttpHeaders.AUTHORIZATION, "Basic " + encoded);
             HttpResponse response = client.execute(request);
