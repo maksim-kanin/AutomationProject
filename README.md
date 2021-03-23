@@ -1,5 +1,5 @@
 <h4>5 tests for amdocs.com vacancy</h4>
-Stack:
+Stack:<br>
 - **Java 8(https://www.oracle.com/java/technologies/java8.html)**
 <li>Selenide</li>
 <li>Allure Report</li>
