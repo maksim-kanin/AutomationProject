@@ -56,3 +56,9 @@ task slackAllureResults(type: JavaExec) {
     main = 'com.amdocs.core.notifications.Sender'
     args 'slack'
 }
+
+task runWebTests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'web'
+    }
+}
