@@ -7,4 +7,10 @@ Stack:
 <li>Selenoid</li>
 <li>Jenkins</li>
 <li>GitHub</li>
+<li>assertJ</li>
+<li>Jackson</li>
+<li>Lombok</li>
+<li>Gradle</li>
+<li>Owner</li>
+<li>Junit5</li>
 </ul>
