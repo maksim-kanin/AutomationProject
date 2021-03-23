@@ -3,9 +3,10 @@ package com.amdocs.steps;
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Selenide.*;
 import static java.lang.String.format;
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class CloudPageSteps extends CommonPageSteps {
     private static final String CLOUD_PATH = "amdocsone/services-hybrid-operations/cloud-practice";
@@ -24,10 +25,8 @@ public class CloudPageSteps extends CommonPageSteps {
     }
 
     @Step("the user in {this} checks that customer success banner is visible")
-    public void assertCustomerSuccessBannerIsVisible() {
-        assertThat($("#divCustomerEvidenceSection .evidence_title").isDisplayed())
-                .as("Customer Success banner should be visible, but it wasn't!")
-                .isTrue();
+    public void checkCustomerSuccessBannerIsVisible() {
+        $("#divCustomerEvidenceSection .evidence_title").shouldBe(Condition.visible, Duration.ofSeconds(10));
     }
 
     @Override

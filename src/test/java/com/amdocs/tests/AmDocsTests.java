@@ -23,7 +23,7 @@ public class AmDocsTests {
     public void selectCloudCustomerSuccessTest() {
         cloudSteps.openUrl();
         cloudSteps.selectTab("Customer Success");
-        cloudSteps.assertCustomerSuccessBannerIsVisible();
+        cloudSteps.checkCustomerSuccessBannerIsVisible();
     }
 
     @Test
