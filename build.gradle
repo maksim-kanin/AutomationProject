@@ -12,6 +12,11 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
+compileJava {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+
 allure {
     autoconfigure = true
     version = '2.13.8'

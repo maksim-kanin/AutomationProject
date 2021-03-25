@@ -12,4 +12,9 @@ public class NeoPageSteps extends CommonPageSteps {
     public void checkNeoBlockVisible() {
         $(".app_sp_section_article_cover+.app_sp_section_articles h1").shouldBe(Condition.visible, Duration.ofSeconds(10));
     }
+
+    @Override
+    public String toString() {
+        return "Neo page";
+    }
 }
