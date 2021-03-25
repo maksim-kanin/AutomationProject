@@ -49,7 +49,6 @@ task sendAllureResults(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     main = 'com.amdocs.core.notifications.Sender'
     systemProperty "jenkins.build.number", System.getProperty("jenkins.build.number")
-    systemProperty "jenkins.build.url", System.getProperty("jenkins.build.url")
     systemProperty "jenkins.job.url", System.getProperty("jenkins.job.url")
 }
 
