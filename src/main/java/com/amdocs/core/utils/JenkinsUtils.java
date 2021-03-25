@@ -32,7 +32,7 @@ import static com.amdocs.core.config.JenkinsConfig.JENKINS_CONFIG;
 import static org.apache.http.auth.AuthScope.ANY;
 
 public class JenkinsUtils {
-    private static final String JOB_URL = System.getProperty("jenkins.build.number");
+    private static final String JOB_URL = System.getProperty("jenkins.job.url");
     private static final String BUILD_NUMBER = System.getProperty("jenkins.build.number");
 
     public static AllureSummary getSummary() {
