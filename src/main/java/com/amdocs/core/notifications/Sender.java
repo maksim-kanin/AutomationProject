@@ -6,6 +6,7 @@ import com.amdocs.core.notifications.bots.TelegramBot;
 public class Sender {
     public static void main(String[] args) {
         System.out.println(System.getProperty("jenkins.build.number"));
+        System.out.println(System.getProperty("jenkins.build.url"));
         System.out.println(System.getProperty("jenkins.job.url"));
         sendTo(args[0]);
     }
