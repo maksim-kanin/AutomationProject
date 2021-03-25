@@ -17,22 +17,27 @@ compileJava {
     targetCompatibility = '1.8'
 }
 
+def allureVersion = "2.13.8",
+    selenideVersion = "5.19.0",
+    junitVersion = "5.7.1"
+
 allure {
     autoconfigure = true
-    version = '2.13.8'
-
+    aspectjweaver = true
+    version = "$allureVersion"
     useJUnit5 {
-        version = '2.13.8'
+        version = "$allureVersion"
     }
 }
 
 dependencies {
-    compile("com.codeborne:selenide:5.18.0")
-    compile("io.qameta.allure:allure-java-commons:2.13.8")
-    compile("io.qameta.allure:allure-selenide:2.13.8")
-    compile("org.junit.jupiter:junit-jupiter-api:5.7.0")
-    compile("org.junit.jupiter:junit-jupiter-engine:5.7.0")
-    compile("org.junit.jupiter:junit-jupiter-params:5.7.0")
+    compile("org.aspectj:aspectjweaver:1.9.6")
+    compile("com.codeborne:selenide:$selenideVersion")
+    compile("io.qameta.allure:allure-java-commons:$allureVersion")
+    compile("io.qameta.allure:allure-selenide:$allureVersion")
+    compile("org.junit.jupiter:junit-jupiter-api:$junitVersion")
+    compile("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+    compile("org.junit.jupiter:junit-jupiter-params:$junitVersion")
     compile("org.assertj:assertj-core:3.6.1")
     compile("com.fasterxml.jackson.core:jackson-databind:2.12.2")
     compile("org.aeonbits.owner:owner:1.0.4")
