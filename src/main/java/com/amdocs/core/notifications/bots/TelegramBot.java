@@ -28,7 +28,7 @@ public class TelegramBot implements MessageProvider {
                 .append("<b>Build URL: </b>")
                 .append(System.getProperty("jenkins.build.url"))
                 .append("\r\n")
-                .append("<b>Statistics: </b>")
+                .append("<b>Total: </b>")
                 .append(statistic.getTotal())
                 .append("\r\n")
                 .append("<b>Passed: </b>")
