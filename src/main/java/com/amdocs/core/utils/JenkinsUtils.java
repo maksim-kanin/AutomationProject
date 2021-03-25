@@ -32,6 +32,9 @@ import static com.amdocs.core.config.JenkinsConfig.JENKINS_CONFIG;
 import static org.apache.http.auth.AuthScope.ANY;
 
 public class JenkinsUtils {
+    private static final String JOB_URL = System.getProperty("jenkins.build.number");
+    private static final String BUILD_NUMBER = System.getProperty("jenkins.build.number");
+
     public static AllureSummary getSummary() {
         try {
             return new ObjectMapper().readValue(summaryAsString(), AllureSummary.class);
@@ -68,7 +71,7 @@ public class JenkinsUtils {
                 .build();
         try {
             String encoded = Base64.getEncoder().encodeToString((JENKINS_CONFIG.getJenkinsUserName() + ":" + JENKINS_CONFIG.getJenkinsUserPassword()).getBytes());
-            HttpGet request = new HttpGet("https://jenkins.autotests.cloud/view/QA.GURU_4/job/C04-AsiaKas-jenkins-selenoid/13/allure/widgets/summary.json");
+            HttpGet request = new HttpGet(JOB_URL + BUILD_NUMBER + "/allure/widgets/summary.json");
             request.addHeader(HttpHeaders.AUTHORIZATION, "Basic " + encoded);
             HttpResponse response = client.execute(request);
             return EntityUtils.toString(response.getEntity());

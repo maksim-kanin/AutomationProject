@@ -45,16 +45,12 @@ test {
     systemProperties(System.getProperties())
 }
 
-task telegramAllureResults(type: JavaExec) {
+task sendAllureResults(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     main = 'com.amdocs.core.notifications.Sender'
-    args 'telegram'
-}
-
-task slackAllureResults(type: JavaExec) {
-    classpath = sourceSets.main.runtimeClasspath
-    main = 'com.amdocs.core.notifications.Sender'
-    args 'slack'
+    systemProperty "jenkins.build.number", System.getProperty("jenkins.build.number")
+    systemProperty "jenkins.build.url", System.getProperty("jenkins.build.url")
+    systemProperty "jenkins.job.url", System.getProperty("jenkins.job.url")
 }
 
 task runWebTests(type: Test) {

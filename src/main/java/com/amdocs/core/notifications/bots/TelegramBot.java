@@ -22,7 +22,13 @@ public class TelegramBot implements MessageProvider {
     private String beautifySummary(AllureSummary summary) {
         Statistic statistic = summary.getStatistic();
         StringBuilder builder = new StringBuilder();
-        builder.append("<b>Total: </b>")
+        builder.append("<b>Build number: </b>")
+                .append(System.getProperty("jenkins.build.number"))
+                .append("\r\n")
+                .append("<b>Build URL: </b>")
+                .append(System.getProperty("jenkins.build.url"))
+                .append("\r\n")
+                .append("<b>Statistics: </b>")
                 .append(statistic.getTotal())
                 .append("\r\n")
                 .append("<b>Passed: </b>")
