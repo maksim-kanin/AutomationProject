@@ -1,5 +1,6 @@
 package com.amdocs.steps;
 
+import com.amdocs.core.elements.Button;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
@@ -8,6 +9,7 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.*;
 import static java.lang.String.format;
+import static org.openqa.selenium.By.cssSelector;
 
 public class MainPageSteps extends CommonPageSteps {
 
@@ -28,7 +30,7 @@ public class MainPageSteps extends CommonPageSteps {
 
     @Step("the user in {this} opens search popup")
     public void openSearchPopup() {
-        $(".app_tm_search_button").click();
+        new Button(cssSelector(".app_tm_search_button")).click();
         searchPopup.shouldBe(Condition.visible);
     }
 

@@ -1,7 +1,7 @@
 package com.amdocs.core.notifications;
 
-import com.amdocs.core.notifications.bots.SlackBot;
-import com.amdocs.core.notifications.bots.TelegramBot;
+import com.amdocs.core.notifications.bots.slack.SlackBot;
+import com.amdocs.core.notifications.bots.telegram.TelegramWrapper;
 
 public class Sender {
     public static void main(String[] args) {
@@ -14,7 +14,7 @@ public class Sender {
     private static void sendTo(String recipient) {
         switch (recipient) {
             case "telegram":
-                new TelegramBot().send();
+                new TelegramWrapper().send();
                 break;
             case "slack":
                 new SlackBot().send();

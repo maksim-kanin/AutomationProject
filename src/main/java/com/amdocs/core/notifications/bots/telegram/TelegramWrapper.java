@@ -1,21 +1,24 @@
-package com.amdocs.core.notifications.bots;
+package com.amdocs.core.notifications.bots.telegram;
 
+import com.amdocs.core.notifications.bots.MessageProvider;
 import com.amdocs.core.notifications.pojo.AllureSummary;
 import com.amdocs.core.notifications.pojo.Statistic;
+import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.model.request.ParseMode;
 import com.pengrad.telegrambot.request.SendMessage;
 
 import static com.amdocs.core.utils.JenkinsUtils.getSummary;
 
-public class TelegramBot implements MessageProvider {
+public class TelegramWrapper implements MessageProvider {
     private static final String SECRET_BOT_TOKEN = "1796571092:AAHGPypoDtHNgjjsfriIK6iBzjlqSqCMAQ8";
     //ID for "QA.GURU 4| Группа 9"
     private static final String CHAT_ID = "-1001447250696";
-    private final com.pengrad.telegrambot.TelegramBot bot = new com.pengrad.telegrambot.TelegramBot(SECRET_BOT_TOKEN);
+    private final TelegramBot bot = new TelegramBot(SECRET_BOT_TOKEN);
 
     @Override
     public void send() {
-        SendMessage message = new SendMessage(CHAT_ID, beautifySummary(getSummary())).parseMode(ParseMode.HTML);
+        SendMessage message = new SendMessage(CHAT_ID, beautifySummary(getSummary()))
+                .parseMode(ParseMode.HTML);
         bot.execute(message);
     }
 

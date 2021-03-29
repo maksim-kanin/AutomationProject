@@ -1,4 +1,6 @@
-package com.amdocs.core.notifications.bots;
+package com.amdocs.core.notifications.bots.slack;
+
+import com.amdocs.core.notifications.bots.MessageProvider;
 
 public class SlackBot implements MessageProvider {
     @Override
