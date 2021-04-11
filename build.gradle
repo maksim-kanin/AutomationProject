@@ -47,17 +47,13 @@ dependencies {
 }
 
 tasks.withType(Test) {
-    systemProperties += System.properties
-}
-
-test {
     useJUnitPlatform()
     systemProperties(System.getProperties())
 }
 
 task sendAllureResults(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
-    main = 'com.amdocs.core.notifications.Sender'
+    main = 'core.notifications.Sender'
     systemProperty "jenkins.build.number", System.getProperty("jenkins.build.number")
     systemProperty "jenkins.build.url", System.getProperty("jenkins.build.url")
     systemProperty "jenkins.job.url", System.getProperty("jenkins.job.url")
@@ -66,5 +62,11 @@ task sendAllureResults(type: JavaExec) {
 task runWebTests(type: Test) {
     useJUnitPlatform {
         includeTags 'web'
+    }
+}
+
+task runApiTests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'api'
     }
 }
