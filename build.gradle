@@ -5,6 +5,7 @@ plugins {
 }
 
 repositories {
+    maven { url = "https://dl.bintray.com/qameta/maven-unstable/" }
     mavenCentral()
 }
 
@@ -31,24 +32,29 @@ allure {
 }
 
 dependencies {
-    compile("org.aspectj:aspectjweaver:1.9.6")
-    compile("com.codeborne:selenide:$selenideVersion")
-    compile("io.qameta.allure:allure-java-commons:$allureVersion")
-    compile("io.qameta.allure:allure-selenide:$allureVersion")
-    compile("org.junit.jupiter:junit-jupiter-api:$junitVersion")
-    compile("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
-    compile("org.junit.jupiter:junit-jupiter-params:$junitVersion")
-    compile("org.assertj:assertj-core:3.6.1")
-    compile("com.fasterxml.jackson.core:jackson-databind:2.12.2")
-    compile("org.aeonbits.owner:owner:1.0.4")
-    compile("org.apache.httpcomponents:httpclient:4.5.3")
-    compile("org.apache.httpcomponents:fluent-hc:4.5.3")
-    compile("com.github.pengrad:java-telegram-bot-api:5.1.0")
+    compile("io.qameta.allure:allure-selenide:$allureVersion",
+            "com.codeborne:selenide:$selenideVersion",
+            "org.aspectj:aspectjweaver:1.9.6",
+            "io.rest-assured:rest-assured:4.3.1",
+            "io.qameta.allure:allure-java-commons:$allureVersion",
+            "io.qameta.allure:allure-rest-assured:$allureVersion",
+            "org.junit.jupiter:junit-jupiter-api:$junitVersion",
+            "org.junit.jupiter:junit-jupiter-params:$junitVersion",
+            "org.aeonbits.owner:owner:1.0.4",
+            "org.assertj:assertj-core:3.6.1",
+            "com.fasterxml.jackson.core:jackson-databind:2.12.2",
+            "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.8.5",
+            "org.apache.httpcomponents:httpclient:4.5.3",
+            "org.apache.httpcomponents:fluent-hc:4.5.3",
+            "com.github.pengrad:java-telegram-bot-api:5.1.0",
+            "io.qameta.allure:allure-ee-junit-platform:3.28.2")
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 }
 
 tasks.withType(Test) {
     useJUnitPlatform()
     systemProperties(System.getProperties())
+    System.setProperty("junit.jupiter.extensions.autodetection.enabled", "true")
 }
 
 task sendAllureResults(type: JavaExec) {
