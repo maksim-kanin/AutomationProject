@@ -19,6 +19,7 @@
 ### Reporting with Allure Report:
 
 ![Alt text](https://github.com/SmileySpb/AutomationProject/blob/main/github/allure.gif)
+![Alt text](https://github.com/SmileySpb/AutomationProject/blob/main/github/allure_2.png)
 
 ### Notifications to Telegram:
 
