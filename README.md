@@ -3,6 +3,8 @@
 ### Stack:
 
 [<img src="https://github.com/SmileySpb/AutomationProject/blob/main/github/java_8.png" alt="java_8" width="70" height="70"/>](https://www.oracle.com/ru/java/technologies/javase-jre8-downloads.html)
+[<img src="https://github.com/SmileySpb/AutomationProject/blob/main/github/junit_5.png" alt="junit_5" width="70" height="70"/>](https://junit.org/junit5/)
+[<img src="https://github.com/SmileySpb/AutomationProject/blob/main/github/selenide.png" alt="selenide" width="70" height="70"/>](https://ru.selenide.org/)
 
 ![](https://img.shields.io/badge/Java-8-red)
 ![](https://img.shields.io/badge/Junit-5-green)
