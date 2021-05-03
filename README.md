@@ -18,7 +18,7 @@
 
 ### Reporting:
 
-![](https://img.shields.io/badge/Allure-orange)
+![Alt text](https://github.com/SmileySpb/AutomationProject/blob/main/github/allure.gif)
 
 ### Contacts:
 
