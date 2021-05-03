@@ -16,9 +16,13 @@
 ![](https://img.shields.io/badge/Selenoid-870e30)
 ![](https://img.shields.io/badge/Jenkins-1f0c8a)
 
-### Reporting:
+### Reporting with Allure Report:
 
 ![Alt text](https://github.com/SmileySpb/AutomationProject/blob/main/github/allure.gif)
+
+### Notifications to Telegram:
+
+![Alt text](https://github.com/SmileySpb/AutomationProject/blob/main/github/telegram_notifications_report.png)
 
 ### Contacts:
 
