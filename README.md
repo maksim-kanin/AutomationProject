@@ -9,6 +9,7 @@
 [<img src="https://github.com/SmileySpb/AutomationProject/blob/main/github/gradle.png" alt="gradle" width="200" height="200"/>](https://gradle.org/)
 [<img src="https://github.com/SmileySpb/AutomationProject/blob/main/github/jackson.png" alt="jackson" width="200" height="200"/>](https://github.com/FasterXML/jackson)
 [<img src="https://github.com/SmileySpb/AutomationProject/blob/main/github/lombok.png" alt="lombok" width="200" height="200"/>](https://projectlombok.org/)
+[<img src="https://github.com/SmileySpb/AutomationProject/blob/main/github/owner.png" alt="owner" width="200" height="200"/>](http://owner.aeonbits.org/)
 
 ### Infrastructure:
 
