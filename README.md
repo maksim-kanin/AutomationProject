@@ -1,6 +1,8 @@
-## Automation project (WEB + API)
+## Automation project (WEB)
 
 ### Stack:
+
+<img src="https://github.com/SmileySpb/AutomationProject/blob/main/github/java_8.png" alt="java_8" width="50" height="50"/>
 
 ![](https://img.shields.io/badge/Java-8-red)
 ![](https://img.shields.io/badge/Junit-5-green)
