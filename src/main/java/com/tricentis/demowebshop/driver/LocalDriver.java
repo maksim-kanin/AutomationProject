@@ -4,7 +4,7 @@ import com.codeborne.selenide.Configuration;
 import io.qameta.allure.selenide.AllureSelenide;
 
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
-import static com.tricentis.demowebshop.config.UITestsConfig.DEV_CONFIG;
+import static com.tricentis.demowebshop.config.DevConfig.DEV_CONFIG;
 
 public class LocalDriver implements DriverProvider {
     @Override

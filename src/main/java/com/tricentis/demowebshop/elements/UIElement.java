@@ -34,6 +34,10 @@ public abstract class UIElement {
         return new Link(selector, this::getSelenideElement);
     }
 
+    public TextField innerTextField(By selector) {
+        return new TextField(selector, this::getSelenideElement);
+    }
+
     @Override
     public String toString() {
         return context == null ?

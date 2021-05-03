@@ -15,7 +15,7 @@ public class Button extends UIElement {
         super(by);
     }
 
-    @Step("the user clicks {this}")
+    @Step("the user clicks [{this}]")
     public void click() {
         this.getSelenideElement().click();
     }

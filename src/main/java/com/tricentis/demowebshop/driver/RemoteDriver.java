@@ -5,7 +5,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
-import static com.tricentis.demowebshop.config.UITestsConfig.DEV_CONFIG;
+import static com.tricentis.demowebshop.config.DevConfig.DEV_CONFIG;
 
 public class RemoteDriver implements DriverProvider {
     @Override

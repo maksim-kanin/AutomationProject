@@ -1,0 +1,9 @@
+- role: ShoppingCard
+  users:
+    - name: shopping_card_user_1@qaguru.ru
+      password: qwerty
+
+- role: CompareList
+  users:
+    - name: compare_list_user_1@qaguru.ru
+      password: qwerty
