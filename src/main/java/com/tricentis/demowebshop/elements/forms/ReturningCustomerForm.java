@@ -20,13 +20,13 @@ public class ReturningCustomerForm extends UIElement {
         this.user = new CredentialsService().getUser(userRole);
     }
 
-    @Step("the user in [{this}] enters [{email}] email")
+    @Step("the user in [{this}] enters email")
     public ReturningCustomerForm email() {
         innerTextField(xpath(format(TEXTFIELD_BY_NAME, "Email:"))).enterText(user.getName());
         return this;
     }
 
-    @Step("the user in [{this}] enters [{password}] password")
+    @Step("the user in [{this}] enters password")
     public ReturningCustomerForm password() {
         innerTextField(xpath(format(TEXTFIELD_BY_NAME, "Password:"))).enterText(user.getPassword());
         return this;
