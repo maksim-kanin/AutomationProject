@@ -58,7 +58,7 @@ public class DemoWebShopTests {
                 .password()
                 .login();
         mainPageSteps.addFeaturedProductToCart("14.1-inch Laptop");
-        headerSteps.assertLinkIsVisible("Shopping cart", 1);
+        headerSteps.assertLinkIsVisible("Shopping cart", 4);
     }
 
     @Test
