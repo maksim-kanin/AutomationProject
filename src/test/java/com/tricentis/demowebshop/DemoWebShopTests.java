@@ -5,7 +5,6 @@ import com.tricentis.demowebshop.steps.CompareProductsSteps;
 import com.tricentis.demowebshop.steps.MainPageSteps;
 import com.tricentis.demowebshop.steps.ProductCardSteps;
 import com.tricentis.demowebshop.steps.cards.SearchProductCardSteps;
-import com.tricentis.demowebshop.steps.common.CommonPageSteps;
 import com.tricentis.demowebshop.steps.common.HeaderSteps;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -18,7 +17,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @Tag("web")
 @Epic("UI tests")
 public class DemoWebShopTests {
-    private final CommonPageSteps commonPageSteps = new CommonPageSteps();
     private final MainPageSteps mainPageSteps = new MainPageSteps();
     private final HeaderSteps headerSteps = new HeaderSteps();
     private final SearchProductCardSteps searchProductCardSteps = new SearchProductCardSteps();
@@ -27,18 +25,18 @@ public class DemoWebShopTests {
 
     @Test
     @Feature("Registration")
-    @DisplayName("Register new qa_guru_mkanin male user")
+    @DisplayName("Register new qa_guru_mkanin_17 male user")
     public void registerNewUserTest() {
         mainPageSteps.open();
         headerSteps.openRegisterForm()
                 .gender("male")
                 .firstName("Maksim")
                 .lastName("Kanin")
-                .email("qa_guru_mkanin@qaguru.ru")
+                .email("qa_guru_mkanin_17@qaguru.ru")
                 .password("qwerty")
                 .confirmPassword("qwerty")
                 .register();
-        headerSteps.assertLinkIsVisible("qa_guru_mkanin@qaguru.ru");
+        headerSteps.assertLinkIsVisible("qa_guru_mkanin_17@qaguru.ru");
     }
 
     @Test
