@@ -13,8 +13,8 @@
 
 ### Infrastructure:
 
-![](https://img.shields.io/badge/Selenoid-870e30)
-![](https://img.shields.io/badge/Jenkins-1f0c8a)
+[<img src="https://github.com/SmileySpb/AutomationProject/blob/main/github/jenkins.png" alt="jenkins" width="100" height="100"/>](https://projectlombok.org/)
+[<img src="https://github.com/SmileySpb/AutomationProject/blob/main/github/selenoid.png" alt="selenoid" width="100" height="100"/>](http://owner.aeonbits.org/)
 
 ### Reporting with Allure Report:
 
