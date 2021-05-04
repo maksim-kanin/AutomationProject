@@ -25,18 +25,18 @@ public class DemoWebShopTests {
 
     @Test
     @Feature("Registration")
-    @DisplayName("Register new qa_guru_mkanin_17 male user")
+    @DisplayName("Register new qa_guru_mkanin_18 male user")
     public void registerNewUserTest() {
         mainPageSteps.open();
         headerSteps.openRegisterForm()
                 .gender("male")
                 .firstName("Maksim")
                 .lastName("Kanin")
-                .email("qa_guru_mkanin_17@qaguru.ru")
+                .email("qa_guru_mkanin_18@qaguru.ru")
                 .password("qwerty")
                 .confirmPassword("qwerty")
                 .register();
-        headerSteps.assertLinkIsVisible("qa_guru_mkanin_17@qaguru.ru");
+        headerSteps.assertLinkIsVisible("qa_guru_mkanin_18@qaguru.ru");
     }
 
     @Test

@@ -5,5 +5,5 @@
 
 - role: CompareList
   users:
-    - name: compare_list_user_2@qaguru.ru
+    - name: compare_list_user_3@qaguru.ru
       password: qwerty
