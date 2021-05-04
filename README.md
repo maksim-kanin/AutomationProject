@@ -1,4 +1,4 @@
-## Automation project (WEB)
+## Automation project (WEB): http://demowebshop.tricentis.com/
 
 ### Stack:
 
